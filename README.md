@@ -1,1 +1,1 @@
-My eighth homework on React
+Homework of course Career Skills

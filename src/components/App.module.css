@@ -1,5 +1,6 @@
-.contactsWrapper {
-  width: 100%;
+.campersWrapper {
+  width: 100vw;
   padding: 20px;
   margin-bottom: 20px;
+  /* background-color: cadetblue; */
 }

@@ -73,7 +73,7 @@ body {
   display: flex;
   place-items: center;
   justify-content: center;
-  min-width: 520px;
+  width: 100%; */
   /* min-height: 100vh; */
   margin-top: 50px;
 }
