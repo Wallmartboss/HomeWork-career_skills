@@ -1,0 +1,59 @@
+.filterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  /* max-width: 360px; */
+}
+.filterGroup {
+  margin-bottom: 20px;
+}
+
+.filterGroup h4 {
+  margin: 10px 0;
+}
+
+.filterGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filterGroup input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filterGroup button {
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterGroup button:hover {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.searchButton {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.searchButton:hover {
+  background: #0056b3;
+}
