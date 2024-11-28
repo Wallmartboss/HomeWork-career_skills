@@ -1,22 +1,43 @@
 .filterForm {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+
   /* max-width: 360px; */
 }
-.filterGroup {
-  margin-bottom: 20px;
+.filterForm button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  opacity: 0.6;
 }
 
-.filterGroup h4 {
-  margin: 10px 0;
+.filterForm button.active {
+  opacity: 1;
+  border: 2px solid var(--button_hover);
+}
+.filterGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filterGroup h3 {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--main);
 }
 
 .filterGroup label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 400;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .filterGroup input {
@@ -27,33 +48,52 @@
 }
 
 .filterGroup button {
-  display: inline-block;
-  margin: 5px 5px 0 0;
+  display: flex;
   padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 112px;
+  height: 96px;
+  border-radius: 12px;
+  border: 2px solid var(--gray_light);
   background: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  stroke: var(--main);
 }
 
 .filterGroup button:hover {
-  background: #007bff;
-  color: #fff;
-  border-color: #007bff;
+  border-color: var(--button_hover);
 }
 
-.searchButton {
-  width: 100%;
+button.searchButton {
+  width: 166px;
+  height: 56px;
   padding: 10px;
-  background: #007bff;
+  background-color: var(--button);
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 28px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.searchButton:hover {
-  background: #0056b3;
+.searchButton:hover,
+.searchButton:focus {
+  background-color: var(--button_hover);
+}
+
+.separator {
+  margin: 12px 0;
+  width: 360px;
+  height: 1px;
+  border: none;
+  background-color: var(--gray_light);
+}
+.filterTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text);
+  margin-bottom: 12px;
 }

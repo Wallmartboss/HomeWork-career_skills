@@ -8,8 +8,8 @@
   justifycontent: 'center';
   /* background-color: var(--gray); */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(888px, 1fr));
+  gap: 32px;
 }
 /* 
 .catalogPage {
@@ -46,6 +46,7 @@
   /* flex: 1; */
   margin-left: calc((100% - 1440px) / 2 + 64px);
   width: 360px;
+  margin-right: 64px;
 
   @media screen and (min-width: 768px) and (max-width: 1440px) {
     margin-left: 64px;
