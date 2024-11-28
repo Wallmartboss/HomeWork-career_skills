@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <div className={s.navHeader}>
       <img className={s.logo} src={logo} alt="Logo" width="136" height="16" />
-      <nav>
+      <nav className={s.navi}>
         <NavLink className={s.link} to="/">
           Home
         </NavLink>

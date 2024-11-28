@@ -5,10 +5,10 @@
   justify-content: center; */
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url('../../img/backgr.jpg');
-  background-size: cover;
+  background-size: 100vw;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
+  width: 100vw;
   height: calc(100vh - 72px);
   overflow: hidden;
 }
@@ -17,18 +17,30 @@
   font-size: 48px;
   line-height: 32px;
   color: white;
+  margin-bottom: 16px;
 }
 .text {
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
   color: white;
+  margin-bottom: 40px;
 }
 .info {
   text-align: start;
   justify-content: flex-start;
-  width: 650px;
+  width: 575px;
   height: 176px;
-  padding-left: calc((100vw - 1440px) / 2 + 64px);
-  padding-top: calc((100vh - 696px) / 2 + 260px);
+  margin-left: calc((100vw - 1440px) / 2 + 64px);
+  margin-top: calc((100vh - 72px - 176px) / 2);
+  @media screen and (max-width: 1440px) {
+    margin-left: 64px;
+  }
+}
+.buttonView {
+  width: 173px;
+  height: 56px;
+  background-color: var(--button);
+  color: white;
+  border-radius: 28px;
 }

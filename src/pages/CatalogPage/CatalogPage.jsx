@@ -19,14 +19,7 @@ const CatalogPage = () => {
       {/* <Filters /> */}
       <div className={s.catalog}>
         {campers.map(camper => (
-          <div
-            key={camper.id}
-            style={{
-              flex: '1 1 calc(33.333% - 16px)',
-              maxWidth: 'calc(33.333% - 16px)',
-              boxSizing: 'border-box',
-            }}
-          >
+          <div className={s.field} key={camper.id}>
             <CamperCard camper={camper} />
           </div>
         ))}

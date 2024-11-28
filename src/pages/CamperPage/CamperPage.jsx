@@ -16,8 +16,8 @@ const CamperPage = () => {
     dispatch(fetchCamperById(id));
   }, [dispatch, id]);
 
-  console.log({ camper });
-  console.log(gallery);
+  // console.log({ camper });
+  // console.log(gallery);
 
   const renderStars = rating => {
     const stars = Array.from({ length: 5 }, (_, index) => {
