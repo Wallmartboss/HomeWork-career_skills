@@ -1,0 +1,8 @@
+.catalog {
+  width: 100%;
+  display: 'flex';
+  flexwrap: 'wrap';
+  gap: '16px';
+  justifycontent: 'center';
+  background-color: var(--gray);
+}

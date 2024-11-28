@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 // import s from './SearchBox.module.css';
 import { changeFilter } from '../../redux/filters/slice';

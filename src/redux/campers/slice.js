@@ -21,6 +21,7 @@ const handleRejected = (state, action) => {
 const camperSlice = createSlice({
   name: 'campers',
   initialState,
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(fetchCampers.pending, handlePending)
@@ -34,12 +35,31 @@ const camperSlice = createSlice({
       .addCase(fetchCamperById.pending, handlePending)
       .addCase(fetchCamperById.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = null;
-        state.items = action.payload;
+        const {
+          thumb,
+          original,
+          reviewer_name,
+          reviewer_rating,
+          comment,
+          ...camperDetails
+        } = action.payload;
+
+        state.camper = camperDetails;
+
+        state.gallery = [
+          { type: 'thumb', url: thumb },
+          { type: 'original', url: original },
+        ];
+
+        state.reviews = [
+          {
+            reviewerName: reviewer_name,
+            reviewerRating: reviewer_rating,
+            comment: comment,
+          },
+        ];
       })
-      .addCase(fetchCamperById.rejected, handleRejected)
-
-
+      .addCase(fetchCamperById.rejected, handleRejected);
   },
 });
 export const campersReducer = camperSlice.reducer;

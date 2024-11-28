@@ -1,38 +1,29 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/campers/operations';
+import { selectCampers } from '../../redux/campers/selectors';
 // import Filters from '../../components/Filters/Filters';
 import CamperCard from '../../components/CamperCard/CamperCard';
-import Navigation from '../../components/Navigation/Navigation';
+import s from './CatalogPage.module.css';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const { items, loading, error } = useSelector(state => state.campers);
-
+  // const { items, loading, error } = useSelector(state => state.campers);
+  const campers = useSelector(selectCampers);
   useEffect(() => {
     dispatch(fetchCampers());
   }, [dispatch]);
 
   return (
-    <div style={{ padding: '16px' }}>
-      <Navigation />
+    <div>
       {/* <Filters /> */}
-      {loading && <p>Завантаження...</p>}
-      {error && <p>Помилка: {error}</p>}
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '16px',
-          justifyContent: 'center',
-        }}
-      >
-        {items.map(camper => (
+      <div className={s.catalog}>
+        {campers.map(camper => (
           <div
             key={camper.id}
             style={{
-              flex: '1 1 calc(33.333% - 16px)', // Ширина одной карты
-              maxWidth: 'calc(33.333% - 16px)', // Ограничение ширины
+              flex: '1 1 calc(33.333% - 16px)',
+              maxWidth: 'calc(33.333% - 16px)',
               boxSizing: 'border-box',
             }}
           >
@@ -49,7 +40,7 @@ export default CatalogPage;
 // import { useEffect } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { fetchCampers } from '../../redux/campers/operations';
-// import { selectCampers } from '../../redux/campers/campersSlice';
+// import { selectCampers } from '../../redux/campers/selectors';
 // import CamperCard from '../../components/CamperCard/CamperCard';
 
 // const CatalogPage = () => {
@@ -63,10 +54,12 @@ export default CatalogPage;
 //   return (
 //     <div>
 //       <h1>Catalog</h1>
-//       <div className="campers-list">
-//         {campers.map(camper => (
-//           <CamperCard key={camper.id} camper={camper} />
-//         ))}
+//       <div>
+//         {Array.isArray(campers) ? (
+//           campers.map(camper => <CamperCard key={camper.id} camper={camper} />)
+//         ) : (
+//           <p>No data for showing</p>
+//         )}
 //       </div>
 //     </div>
 //   );

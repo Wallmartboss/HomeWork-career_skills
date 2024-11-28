@@ -9,7 +9,7 @@ export const fetchCampers = createAsyncThunk(
     try {
       const response = await axios.get(`/campers`);
       if (response.status === 200) {
-        return response.data;
+        return response.data.items;
       } else {
         throw new Error(`Error: ${response.status}`);
       }

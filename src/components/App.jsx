@@ -13,15 +13,12 @@ import CatalogPage from '../pages/CatalogPage/CatalogPage';
 const App = () => {
   return (
     <div className={s.campersWrapper}>
-      {/* <Layout>
-        <h1>Hello</h1> */}
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/catalog/:id" element={<CamperPage />} />
       </Routes>
-      {/* </Layout> */}
     </div>
   );
 };
