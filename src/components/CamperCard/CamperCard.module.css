@@ -3,11 +3,10 @@
   border: 1px solid var(--gray_light);
   border-radius: 20px;
   overflow: hidden;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   text-align: center;
   background: #fff;
   padding: 24px;
-  width: 888ps;
+  width: 888px;
   height: 368px;
   flex: 1;
 }
@@ -36,35 +35,86 @@
   font-weight: semi-bold;
   line-height: 32px;
   color: var(--main);
+  margin-right: 12px;
+  margin-left: auto;
 }
-
+.more {
+  display: flex;
+  justify-content: flex-start;
+}
 .moreBtn {
-  background: #e63946;
+  background: var(--button);
   color: #fff;
   border: none;
   padding: 10px;
   width: 100%;
   cursor: pointer;
   font-size: 1rem;
+  border-radius: 28px;
+  width: 166px;
+  height: 56px;
+  margin-bottom: auto;
+  margin-right: auto;
 }
 
-.moreBtn:hover {
-  background: #c82333;
+.moreBtn:hover,
+.moreBtn:focus {
+  background: var(--button_hover);
 }
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+
   height: 100%;
   margin-left: 24px;
 }
 .mainInfo {
   display: flex;
+  justify-content: space-between;
   width: 524px;
 }
 .favoriteBtn {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 3px;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 3 px;
+}
+
+.inline img {
+  display: inline-block;
+  height: 1rem;
+  width: auto;
+}
+.revLocation {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.img {
+  margin-right: 4px;
+}
+.textOneLine {
+  width: 524px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.features {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
