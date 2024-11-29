@@ -43,4 +43,5 @@
   background-color: var(--button);
   color: white;
   border-radius: 28px;
+  outline: none;
 }
