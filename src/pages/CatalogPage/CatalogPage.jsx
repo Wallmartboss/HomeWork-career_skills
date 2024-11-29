@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/campers/operations';
 import { selectCampers } from '../../redux/campers/selectors';
@@ -14,7 +14,13 @@ const CatalogPage = () => {
   useEffect(() => {
     dispatch(fetchCampers());
   }, [dispatch]);
+  const [visibleCount, setVisibleCount] = useState(4);
 
+  const handleLoadMore = () => {
+    setVisibleCount(prevCount => prevCount + 4);
+  };
+
+  const isLoadMoreVisible = visibleCount < campers.length;
   return (
     <div className={s.mainContent}>
       <aside className={s.sidebar}>
@@ -22,14 +28,16 @@ const CatalogPage = () => {
       </aside>
       <section className={s.content}>
         <div className={s.catalog}>
-          {campers.map(camper => (
+          {campers.slice(0, visibleCount).map(camper => (
             <div className={s.field} key={camper.id}>
               <CamperCard camper={camper} />
             </div>
           ))}
         </div>
-        {campers.length > 0 && (
-          <button className={s.loadMore}>Load more</button>
+        {isLoadMoreVisible && (
+          <button className={s.loadMore} onClick={handleLoadMore}>
+            Load more
+          </button>
         )}
       </section>
     </div>
