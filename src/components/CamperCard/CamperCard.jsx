@@ -6,7 +6,7 @@ import {
 } from '../../redux/favorites/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import star from '../../img/star.svg';
-import map from '../../img/map.svg';
+import map_icon from '../../img/map_icon.svg';
 // import CamperFeatures from '../CamperFeatures/CamperFeatures';
 import PropertyIcons from '../PropertyIcons/PropertyIcons';
 
@@ -67,7 +67,7 @@ const CamperCard = ({ camper }) => {
             {rating} ({reviews.length} Reviews)
           </p>
           <p className={s.inline2}>
-            <img className={s.img} src={map} alt="map" /> {loc(location)}
+            <img className={s.img} src={map_icon} alt="map" /> {loc(location)}
           </p>
         </div>
         <p className={s.textOneLine}>{camper.description}</p>
