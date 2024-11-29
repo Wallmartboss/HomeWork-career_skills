@@ -7,7 +7,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import star from '../../img/star.svg';
 import map from '../../img/map.svg';
-import CamperFeatures from '../CamperFeatures/CamperFeatures';
+// import CamperFeatures from '../CamperFeatures/CamperFeatures';
+import PropertyIcons from '../PropertyIcons/PropertyIcons';
 
 const CamperCard = ({ camper }) => {
   const dispatch = useDispatch();
@@ -65,13 +66,13 @@ const CamperCard = ({ camper }) => {
             <img className={s.img} src={star} alt="ratingstar" />
             {rating} ({reviews.length} Reviews)
           </p>
-          <p className={s.inline}>
+          <p className={s.inline2}>
             <img className={s.img} src={map} alt="map" /> {loc(location)}
           </p>
         </div>
         <p className={s.textOneLine}>{camper.description}</p>
         <div className={s.features}>
-          <CamperFeatures features={camper.features} />
+          <PropertyIcons camper={camper} />
         </div>
         <div className={s.more}>
           <Link to={`/catalog/${id}`}>

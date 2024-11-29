@@ -32,7 +32,7 @@
 
 .price {
   font-size: 24px;
-  font-weight: semi-bold;
+  font-weight: bold;
   line-height: 32px;
   color: var(--main);
   margin-right: 12px;
@@ -73,6 +73,7 @@
   display: flex;
   justify-content: space-between;
   width: 524px;
+  margin-bottom: 8px;
 }
 .favoriteBtn {
   background: none;
@@ -85,8 +86,17 @@
   display: flex;
   align-items: center;
   gap: 3 px;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration-line: underline;
 }
-
+.inline2 {
+  display: flex;
+  align-items: center;
+  gap: 3 px;
+  font-size: 16px;
+  line-height: 24px;
+}
 .inline img {
   display: inline-block;
   height: 1rem;
