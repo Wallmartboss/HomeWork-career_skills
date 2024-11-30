@@ -79,6 +79,11 @@ body {
   justify-content: center;
   box-sizing: border-box;
   width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  /* color: var(--text); */
 
   --mail: #101828;
   --text: #475467;

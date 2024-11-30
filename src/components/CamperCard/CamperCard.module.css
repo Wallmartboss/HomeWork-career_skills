@@ -23,6 +23,10 @@
   font-weight: semi-bold;
   line-height: 32px;
   color: var(--main);
+  max-width: 345px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .location {

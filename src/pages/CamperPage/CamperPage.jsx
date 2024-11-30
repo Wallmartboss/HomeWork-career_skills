@@ -1,23 +1,21 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCamperById } from '../../redux/campers/operations';
 import s from './CamperPage.module.css';
+import star from '../../img/star.svg';
+import map_icon from '../../img/map_icon.svg';
+import BookingForm from '../../components/BookingForm/BookingForm';
 
 const CamperPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   // const camper = useSelector(state => state.campers.selectedCamper);
-  const { camper, gallery, reviews, loading, error } = useSelector(
-    state => state.campers
-  );
+  const { camper, gallery, reviews } = useSelector(state => state.campers);
 
   useEffect(() => {
     dispatch(fetchCamperById(id));
   }, [dispatch, id]);
-
-  // console.log({ camper });
-  // console.log(gallery);
 
   const renderStars = rating => {
     const stars = Array.from({ length: 5 }, (_, index) => {
@@ -65,52 +63,62 @@ const CamperPage = () => {
     return formattedLocation;
   };
   return (
-    <div>
-      <h1>{camper?.name}</h1>
-      <h3>{camper?.price}</h3>
-      <h3>{camper?.rating}</h3>
-      <h3>{location(camper?.location)}</h3>
-      <h3>{camper?.form}</h3>
-      <h3>{camper?.length}</h3>
-      <h3>{camper?.width}</h3>
-      <h3>{camper?.tank}</h3>
-      <h3>{camper?.consumption}</h3>
-      <h3>{camper?.transmission}</h3>
-      <h3>{camper?.engine}</h3>
-      <p>{camper?.description}</p>
+    <div className={s.camperPage}>
+      <div className={s.camperInfo}>
+        <h2 className={s.name}>{camper?.name}</h2>
+        <div className={s.revLocation}>
+          <p className={s.inline}>
+            <img className={s.img} src={star} alt="ratingstar" />
+            {camper?.rating} ({reviews.length} Reviews)
+          </p>
+          <p className={s.inline2}>
+            <img className={s.img} src={map_icon} alt="map" />{' '}
+            {location(camper?.location)}
+          </p>
+        </div>
+        <p className={s.price}>€{Number(camper?.price).toFixed(2)}</p>
+      </div>
 
-      <div>
-        <h2>Gallery</h2>
+      <div className={s.gallery}>
         {camper.gallery.map((image, index) => (
           <img
+            className={s.imageGallery}
             key={index}
             src={image.original}
             alt={`${camper?.name} ${index}`}
-            style={{
-              width: '292px',
-              height: '312px',
-              marginBottom: '10px',
-              objectFit: 'cover',
-            }}
+            loading="lazy"
           />
         ))}
       </div>
-      <div>
-        <h2>Reviews</h2>
-        {camper.reviews.map((review, index) => (
-          <div key={index}>
-            <p>
-              <strong>{review.reviewer_name}</strong>
-            </p>
-            <p> {renderStars(review.reviewer_rating)} </p>
-            <p>{review.comment}</p>
-          </div>
-        ))}
+      <p className={s.description}>{camper?.description}</p>
+
+      <div className={s.subMenu}>
+        <NavLink
+          to="features"
+          className={({ isActive }) =>
+            isActive ? `${s.subMenuText} ${s.active}` : s.subMenuText
+          }
+        >
+          Features
+        </NavLink>
+        <NavLink
+          to="reviews"
+          className={({ isActive }) =>
+            isActive ? `${s.subMenuText} ${s.active}` : s.subMenuText
+          }
+        >
+          Reviews
+        </NavLink>
+      </div>
+      <hr className={s.line} />
+      <div className={s.dynamicContent}>
+        <Outlet />
+      </div>
+      <div className={s.bookingForm}>
+        <BookingForm camperId={camper?.id} price={camper?.price} />
       </div>
     </div>
   );
 };
 
 export default CamperPage;
-
-

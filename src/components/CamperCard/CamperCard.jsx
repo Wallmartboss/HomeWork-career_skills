@@ -7,7 +7,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import star from '../../img/star.svg';
 import map_icon from '../../img/map_icon.svg';
-// import CamperFeatures from '../CamperFeatures/CamperFeatures';
 import PropertyIcons from '../PropertyIcons/PropertyIcons';
 
 const CamperCard = ({ camper }) => {
@@ -40,7 +39,7 @@ const CamperCard = ({ camper }) => {
       <div className={s.info}>
         <div className={s.mainInfo}>
           <h2 className={s.name}>{name}</h2>
-          <p className={s.price}>€{Number(price).toFixed(0)}</p>
+          <p className={s.price}>€ {Number(price).toFixed(2)} </p>
 
           <div className={s.actions}>
             <button

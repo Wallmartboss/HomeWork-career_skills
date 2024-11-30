@@ -1,3 +1,16 @@
+.camperPage {
+  display: flex;
+  flex-direction: column;
+  padding-left: calc((100% - 1440px) / 2 + 64px);
+  padding-right: calc((100% - 1440px) / 2 + 64px);
+}
+.camperInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 48px;
+  margin-bottom: 28px;
+}
 .filled {
   color: gold;
 }
@@ -5,4 +18,86 @@
 .empty {
   color: lightgray;
   fill: lightgray;
+}
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 3 px;
+  text-decoration-line: underline;
+}
+.inline2 {
+  display: flex;
+  align-items: center;
+  gap: 3 px;
+}
+.revLocation {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+  color: var(--main);
+}
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 32px;
+  color: var(--main);
+}
+.name {
+  font-size: 24px;
+  font-weight: semi-bold;
+  line-height: 32px;
+  color: var(--main);
+}
+.img {
+  margin-right: 4px;
+}
+.gallery {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+.imageGallery {
+  max-width: 292px;
+  height: 312px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.description {
+  margin-bottom: 60px;
+  color: var(--text);
+}
+.subMenu {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+.subMenuText {
+  display: inline-block;
+  color: var(--main);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+.subMenuText :hover,
+.subMenuText :focus {
+  color: var(--button_hover);
+}
+.subMenuText ::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--button_hover);
+}
+.line {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: var(--gray_light);
+}
+.dynamicContent {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  min-height: 200px; /* Мінімальна висота */
 }
