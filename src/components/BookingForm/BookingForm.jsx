@@ -1,50 +1,64 @@
 import React, { useState } from 'react';
 import s from './BookingForm.module.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const BookingForm = ({ camperId, price }) => {
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [guests, setGuests] = useState(1);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [bookingDate, setBookingDate] = useState('');
+  const [comment, setComment] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Booking details:', { camperId, startDate, endDate, guests });
-    alert('Booking confirmed!');
+    console.log('Booking details:', { camperId, name, email, bookingDate });
+    toast.success('You successfully made a booking of this camper! ');
+    setName('');
+    setEmail('');
+    setBookingDate('');
+    setComment('');
   };
 
   return (
     <form className={s.form} onSubmit={handleSubmit}>
-      <h3>Book this camper</h3>
+      <h3>Book your campervan now</h3>
+      <p className={s.text}>Stay connected! We are always ready to help you.</p>
       <label>
-        Start Date:
+        <input
+          type="text"
+          placeholder="Name*"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        <input
+          type="email"
+          placeholder="Email*"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         <input
           type="date"
-          value={startDate}
-          onChange={e => setStartDate(e.target.value)}
+          placeholder="Booking date*"
+          min={new Date().toISOString().split('T')[0]}
+          value={bookingDate}
+          onChange={e => setBookingDate(e.target.value)}
           required
         />
       </label>
       <label>
-        End Date:
-        <input
-          type="date"
-          value={endDate}
-          onChange={e => setEndDate(e.target.value)}
-          required
+        <textarea
+          placeholder="Comment"
+          value={comment}
+          onChange={e => setComment(e.target.value)}
         />
       </label>
-      <label>
-        Guests:
-        <input
-          type="number"
-          min="1"
-          value={guests}
-          onChange={e => setGuests(e.target.value)}
-          required
-        />
-      </label>
-      <p>Total price: €{(price * guests).toFixed(2)}</p>
-      <button type="submit">Book Now</button>
+
+      <button type="submit">Send</button>
     </form>
   );
 };

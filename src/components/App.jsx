@@ -7,10 +7,12 @@ import CamperPage from '../pages/CamperPage/CamperPage';
 import CatalogPage from '../pages/CatalogPage/CatalogPage';
 import Features from './Features/Features';
 import Reviews from './Reviews/Reviews';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
     <div className={s.campersWrapper}>
+      <Toaster />
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
