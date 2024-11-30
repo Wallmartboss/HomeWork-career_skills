@@ -44,4 +44,9 @@
   border: none;
   cursor: pointer;
   font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.buttonView:hover,
+.buttonView:focus {
+  background-color: var(--button_hover);
 }

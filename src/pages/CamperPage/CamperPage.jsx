@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, NavLink, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCamperById } from '../../redux/campers/operations';
 import s from './CamperPage.module.css';
@@ -17,47 +17,12 @@ const CamperPage = () => {
     dispatch(fetchCamperById(id));
   }, [dispatch, id]);
 
-  const renderStars = rating => {
-    const stars = Array.from({ length: 5 }, (_, index) => {
-      return (
-        <span
-          key={index}
-          className={index < rating ? `{ s.filled }` : `{ s.empty }`}
-        >
-          {index < rating ? (
-            <svg
-              width="16"
-              height="16"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                fill="#FFC531"
-              />
-            </svg>
-          ) : (
-            <svg
-              width="16"
-              height="16"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                fill="#F2F4F7"
-              />
-            </svg>
-          )}
-        </span>
-      );
-    });
-    return stars;
-  };
-
   if (!camper) return <p>Loading...</p>;
+  const isSubRouteActive =
+    location.pathname.includes('features') ||
+    location.pathname.includes('reviews');
 
-  const location = camperLocation => {
+  const locat = camperLocation => {
     const [country, city] = camperLocation.split(', ');
     const formattedLocation = `${city}, ${country}`;
     return formattedLocation;
@@ -73,7 +38,7 @@ const CamperPage = () => {
           </p>
           <p className={s.inline2}>
             <img className={s.img} src={map_icon} alt="map" />{' '}
-            {location(camper?.location)}
+            {locat(camper?.location)}
           </p>
         </div>
         <p className={s.price}>€{Number(camper?.price).toFixed(2)}</p>
@@ -112,7 +77,8 @@ const CamperPage = () => {
       </div>
       <hr className={s.line} />
       <div className={s.dynamicContent}>
-        <Outlet />
+        {!isSubRouteActive && <Navigate to="features" replace />}
+        <Outlet context={{ camper }} />
       </div>
       <div className={s.bookingForm}>
         <BookingForm camperId={camper?.id} price={camper?.price} />
