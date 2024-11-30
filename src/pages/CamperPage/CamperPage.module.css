@@ -71,23 +71,23 @@
   gap: 40px;
   margin-bottom: 24px;
 }
-.subMenuText {
+.subMenu a {
   display: inline-block;
   color: var(--main);
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
+  position: relative;
 }
-.subMenuText :hover,
-.subMenuText :focus {
-  color: var(--button_hover);
-}
-.subMenuText ::after {
+.subMenu a.activeLink::after {
   content: '';
   display: block;
   width: 100%;
-  height: 2px;
-  background-color: var(--button_hover);
+  height: 5px;
+  background-color: var(--button);
+  position: absolute;
+  bottom: -35px;
+  left: 0;
 }
 .line {
   width: 100%;

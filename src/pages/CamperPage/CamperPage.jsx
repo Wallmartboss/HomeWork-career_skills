@@ -57,24 +57,20 @@ const CamperPage = () => {
       </div>
       <p className={s.description}>{camper?.description}</p>
 
-      <div className={s.subMenu}>
+      <nav className={s.subMenu}>
         <NavLink
           to="features"
-          className={({ isActive }) =>
-            isActive ? `${s.subMenuText} ${s.active}` : s.subMenuText
-          }
+          className={({ isActive }) => (isActive ? s.activeLink : '')}
         >
           Features
         </NavLink>
         <NavLink
           to="reviews"
-          className={({ isActive }) =>
-            isActive ? `${s.subMenuText} ${s.active}` : s.subMenuText
-          }
+          className={({ isActive }) => (isActive ? s.activeLink : '')}
         >
           Reviews
         </NavLink>
-      </div>
+      </nav>
       <hr className={s.line} />
       <div className={s.dynamicContent}>
         {!isSubRouteActive && <Navigate to="features" replace />}
