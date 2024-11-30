@@ -72,12 +72,15 @@ const CamperPage = () => {
         </NavLink>
       </nav>
       <hr className={s.line} />
-      <div className={s.dynamicContent}>
-        {!isSubRouteActive && <Navigate to="features" replace />}
-        <Outlet context={{ camper }} />
-      </div>
-      <div className={s.bookingForm}>
-        <BookingForm camperId={camper?.id} price={camper?.price} />
+      <div className={s.content}>
+        <div className={s.dynamicContent}>
+          {!isSubRouteActive && <Navigate to="features" replace />}
+          <Outlet context={{ camper }} />
+        </div>
+
+        <div className={s.bookingForm}>
+          <BookingForm camperId={camper?.id} price={camper?.price} />
+        </div>
       </div>
     </div>
   );

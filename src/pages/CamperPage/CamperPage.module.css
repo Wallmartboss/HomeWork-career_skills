@@ -94,10 +94,17 @@
   height: 1px;
   border: none;
   background-color: var(--gray_light);
+  margin-bottom: 44px;
+}
+.content {
+  display: flex;
+  gap: 40px;
 }
 .dynamicContent {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  min-height: 200px; /* Мінімальна висота */
+  width: 631px;
+  border-radius: 10px;
+}
+.bookingForm {
+  width: 641px;
+  border-radius: 10px;
 }
