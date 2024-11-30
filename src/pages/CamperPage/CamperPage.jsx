@@ -34,7 +34,7 @@ const CamperPage = () => {
         <div className={s.revLocation}>
           <p className={s.inline}>
             <img className={s.img} src={star} alt="ratingstar" />
-            {camper?.rating} ({reviews.length} Reviews)
+            {camper?.rating} ({camper.reviews.length} Reviews)
           </p>
           <p className={s.inline2}>
             <img className={s.img} src={map_icon} alt="map" />{' '}

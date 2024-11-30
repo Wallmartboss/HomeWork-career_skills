@@ -1,11 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useOutletContext } from 'react-router-dom';
-// import star from '../../img/star.svg';
+import s from './Reviews.module.css';
+
 const Reviews = () => {
   const { camper } = useOutletContext();
-
-  console.log('reviews', camper.reviews);
 
   const renderStars = rating => {
     const stars = Array.from({ length: 5 }, (_, index) => {
@@ -46,15 +45,20 @@ const Reviews = () => {
   };
 
   return (
-    <div>
-      <h2>Reviews</h2>
+    <div className={s.review}>
       {camper.reviews.map((review, index) => (
         <div key={index}>
-          <p>
-            <strong>{review.reviewer_name}</strong>
-          </p>
-          <p> {renderStars(review.reviewer_rating)} </p>
-          <p>{review.comment}</p>
+          <div className={s.reviewer}>
+            <div className={s.icon}>{review.reviewer_name[0]}</div>
+            <div className={s.nameStar}>
+              <p className={s.reviewerName}>
+                <strong>{review.reviewer_name}</strong>
+              </p>
+
+              <p> {renderStars(review.reviewer_rating)} </p>
+            </div>
+          </div>
+          <p className={s.comment}>{review.comment}</p>
         </div>
       ))}
     </div>

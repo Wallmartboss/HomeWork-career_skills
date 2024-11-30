@@ -1,0 +1,36 @@
+.icon {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: var(--gray_light);
+  justify-content: center;
+  align-items: center;
+  color: var(--button);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+.reviewer {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.nameStar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+.reviewerName {
+  font-weight: 500;
+  color: var(--main);
+}
+.comment {
+  color: var(--text);
+}
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
