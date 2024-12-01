@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import s from './BookingForm.module.css';
 import toast, { Toaster } from 'react-hot-toast';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const BookingForm = ({ camperId, price }) => {
   const [name, setName] = useState('');
@@ -17,6 +19,12 @@ const BookingForm = ({ camperId, price }) => {
     setBookingDate('');
     setComment('');
   };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleDateChange = date => {
+    setBookingDate(date);
+    setIsOpen(false);
+  };
 
   return (
     <form className={s.form} onSubmit={handleSubmit}>
@@ -25,6 +33,7 @@ const BookingForm = ({ camperId, price }) => {
       <label>
         <input
           type="text"
+          className={s.input}
           placeholder="Name*"
           value={name}
           onChange={e => setName(e.target.value)}
@@ -34,31 +43,39 @@ const BookingForm = ({ camperId, price }) => {
       <label>
         <input
           type="email"
+          className={s.input}
           placeholder="Email*"
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
         />
       </label>
+
       <label>
-        <input
-          type="date"
-          placeholder="Booking date*"
-          min={new Date().toISOString().split('T')[0]}
-          value={bookingDate}
-          onChange={e => setBookingDate(e.target.value)}
-          required
+        <DatePicker
+          selected={bookingDate}
+          className={s.customCalendar}
+          onChange={handleDateChange}
+          onClickOutside={() => setIsOpen(false)}
+          onFocus={() => setIsOpen(true)}
+          open={isOpen}
+          minDate={new Date()}
+          placeholderText="Booking date*"
+          dateFormat="dd-MM-yyyy"
         />
       </label>
       <label>
         <textarea
+          className={s.textarea}
           placeholder="Comment"
           value={comment}
           onChange={e => setComment(e.target.value)}
         />
       </label>
 
-      <button type="submit">Send</button>
+      <button className={s.button} type="submit">
+        Send
+      </button>
     </form>
   );
 };

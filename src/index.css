@@ -1,5 +1,6 @@
 @import 'modern-normalize';
 @import url('./fonts.css');
+@import 'react-datepicker/dist/react-datepicker.css';
 
 /* Reset styles */
 h1,
@@ -83,4 +84,24 @@ body {
   --button: #e44848;
   --button_hover: #d84343;
   --rating: #ffc531;
+}
+.react-datepicker__header {
+  background-color: white;
+  color: white;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #475467;
+  color: white;
+  border-radius: 50%;
+}
+.react-datepicker__day:hover,
+.react-datepicker__day:focus {
+  background-color: #475467;
+  color: var(--main);
+  font-style: bold;
+  font-weight: 600;
+  font-size: 18px;
+  border: 1px solid var(--main);
 }

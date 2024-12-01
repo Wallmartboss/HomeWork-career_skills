@@ -52,7 +52,7 @@ const Reviews = () => {
             <div className={s.icon}>{review.reviewer_name[0]}</div>
             <div className={s.nameStar}>
               <p className={s.reviewerName}>
-                <strong>{review.reviewer_name}</strong>
+                <p className={s.textName}>{review.reviewer_name}</p>
               </p>
 
               <p> {renderStars(review.reviewer_rating)} </p>

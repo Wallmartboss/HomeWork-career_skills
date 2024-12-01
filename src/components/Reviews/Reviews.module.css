@@ -26,6 +26,9 @@
   font-weight: 500;
   color: var(--main);
 }
+.textName {
+  font-weight: 500;
+}
 .comment {
   color: var(--text);
 }

@@ -1,26 +1,23 @@
 .filterForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-
-  /* max-width: 360px; */
+  gap: 40px;
 }
 .filterForm button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 10px;
-  opacity: 0.6;
 }
 
-.filterForm button.active {
-  opacity: 1;
+.filterGroup button.active {
   border: 2px solid var(--button_hover);
 }
 .filterGroup {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  column-gap: 12px;
+  row-gap: 8px;
 }
 
 .filterGroup h3 {
@@ -34,16 +31,12 @@
 
 .filterGroup label {
   display: block;
-  font-weight: 400;
   color: var(--text);
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .filterGroup input {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
@@ -53,7 +46,7 @@
   width: 112px;
   height: 96px;
   border-radius: 12px;
-  border: 2px solid var(--gray_light);
+  border: 2px solid var(--gray2);
   background: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -63,7 +56,7 @@
 }
 
 .filterGroup button:hover {
-  border-color: var(--button_hover);
+  border: 1px solid var(--button_hover);
 }
 
 button.searchButton {
@@ -84,16 +77,36 @@ button.searchButton {
 }
 
 .separator {
-  margin: 12px 0;
+  margin: 24px 0;
   width: 360px;
   height: 1px;
   border: none;
-  background-color: var(--gray_light);
+  background-color: var(--gray2);
 }
 .filterTitle {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
   color: var(--text);
   margin-bottom: 12px;
+}
+.inputWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background-color: var(--gray_ultralight);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 100%;
+  color: var(--main);
+  background-color: transparent;
 }

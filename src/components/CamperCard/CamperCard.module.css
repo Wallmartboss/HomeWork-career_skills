@@ -3,7 +3,6 @@
   border: 1px solid var(--gray_light);
   border-radius: 20px;
   overflow: hidden;
-  text-align: center;
   background: #fff;
   padding: 24px;
   width: 888px;
@@ -69,7 +68,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  align-items: flex-start;
   height: 100%;
   margin-left: 24px;
 }
@@ -117,6 +116,7 @@
 .textOneLine {
   width: 524px;
   color: var(--text);
+  margin-left: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
