@@ -24,6 +24,7 @@
   border: none;
   width: 527px;
   height: 118px;
+  resize: none;
 }
 .button {
   display: block;
